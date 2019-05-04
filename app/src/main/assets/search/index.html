@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buddhism - At a Glance</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/litera.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" style="padding-top: 25px">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Search</h1>
+            <p class="lead">Please search for keywords here</p>
+        </div>
+    </div>
+
+    <input type="text" class="form-control" id="search" placeholder="Search.." onkeyup="search(this.value)">
+
+    <p id="search_query"></p>
+    <p id="results" class="alert mt-3"></p>
+
+    <div class="list-group" id="result-set">
+    </div>
+
+    <script>
+        function search(query) {
+            let results_for = document.getElementById('results');
+            let result_set = document.getElementById('result-set');
+            let search_query = document.getElementById('search_query');
+            result_set.innerHTML = "";
+            let result_count = 0;
+            if (query.length !== 0) {
+                search_query.innerHTML = 'Search results for: ' + query;
+                religions.forEach((religion) => {
+                    religion.keywords.forEach((el) => {
+                        if (el.includes(query)) {
+                            let a = document.createElement('a');
+                            let title = document.createTextNode(religion.religion + ' [' + el + ']');
+                            let desc = document.createElement('small');
+                            desc.innerText = religion.description;
+                            a.append(title, desc);
+                            a.href = religion.url;
+                            a.classList.add('list-group-item', 'list-group-item-action');
+                            result_set.appendChild(a);
+                            result_count++;
+                        }
+                    })
+                });
+                if (result_count > 0) {
+                    results_for.classList.remove('alert-danger');
+                    results_for.classList.add('alert-success');
+                    results_for.innerHTML = result_count + " result(s) found!";
+                } else {
+                    results_for.classList.remove('alert-success');
+                    results_for.classList.add('alert-danger');
+                    results_for.innerHTML = "No results found!";
+                }
+            } else {
+                results_for.classList.remove('alert-danger');
+                results_for.classList.remove('alert-success');
+                results_for.innerHTML = "";
+                result_set.innerHTML = "";
+                search_query.innerHTML = "";
+            }
+
+        }
+
+        var religions = [
+            {
+                religion: "Buddhism",
+                url: "file:///android_asset/religions/buddhism/ataglance/index.html",
+                description: "\nThis article examines the Four Noble Truths, four principles which contain the essence of the Buddha's teachings.",
+                keywords: [
+                    "Buddhism",
+                    "Buddha",
+                    "Therawada",
+                    "Gautama",
+                    "Dharma"
+                ]
+            },
+            {
+                religion: "Christianity",
+                url: "file:///android_asset/religions/christianity/ataglance/index.html",
+                description: "\nA brief overview of Christianity, the biggest religion in the world, centred on God and Jesus Christ.",
+                keywords: [
+                    "Christianity",
+                    "Christian",
+                    "Pope",
+                    "Crusades",
+                    "God",
+                    "Jesus",
+                    "Jerusalem",
+                    "Trinity",
+                    "Father",
+                    "Son",
+                    "Holy Spirit",
+                    "Apologetics",
+                    "Baptism",
+                    "Christology",
+                    "History of theology",
+                    "Mission Salvation"
+                ]
+            },
+            {
+                religion: "Islam",
+                url: "file:///android_asset/religions/islam/ataglance/index.html",
+                description: "\nLearn more about what Muslims believe. Muslims have six main beliefs, called the Articles of Faith.  The primary Muslim belief is that there is only one God.",
+                keywords: [
+                    "Islam",
+                    "Prophet",
+                    "Mohammed",
+                    "Quran",
+                    "Qu'ran",
+                    "Muslims"
+                ]
+            }
+            ,
+            {
+                religion: "Hinduism",
+                url: "file:///android_asset/religions/hinduism/ataglance/index.html",
+                description: "\nA group of faiths rooted in the religious ideas of India.",
+                keywords: [
+                    "Hinduism",
+                    "Hindus",
+                    "Sun",
+                    "Brahmas",
+                    "Kovil",
+                    "Bagawad Gita",
+                    "Krishna"
+                ]
+            },
+            {
+                religion: "Atheism",
+                url: "file:///android_asset/religions/atheism/ataglance/index.html",
+                description: "\nAtheists are people who believe that god or gods are man-made constructs.",
+                keywords: [
+                    "Atheism",
+                    "Anti-clericalism",
+                    "Antireligion",
+                    "Antitheism",
+                    "Naturalism",
+                    "Nontheism"
+                ]
+            }
+        ]
+    </script>
+
+</div>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/rel_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/search_religion"
+        android:title="Search" />
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/buddhism"
+            android:title="Buddhism">
+            <menu>
+                <item
+                    android:id="@+id/buddhism_ataglance"
+                    android:title="At a Glance" />
+                <item
+                    android:id="@+id/buddhism_beliefs"
+                    android:title="Beliefs" />
+                <item
+                    android:id="@+id/buddhism_history"
+                    android:title="History" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/christianity"
+            android:title="Christianity">
+            <menu>
+                <item
+                    android:id="@+id/christianity_ataglance"
+                    android:title="At a Glance" />
+                <item
+                    android:id="@+id/christianity_beliefs"
+                    android:title="Beliefs" />
+                <item
+                    android:id="@+id/christianity_history"
+                    android:title="History" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/islam"
+            android:title="Islam">
+            <menu>
+                <item
+                    android:id="@+id/islam_ataglance"
+                    android:title="At a Glance" />
+                <item
+                    android:id="@+id/islam_beliefs"
+                    android:title="Beliefs" />
+                <item
+                    android:id="@+id/islam_history"
+                    android:title="History" />
+            </menu>
+        </item>
+
+        <item
+            android:id="@+id/hinduism"
+            android:title="Hinduism">
+            <menu>
+                <item
+                    android:id="@+id/hinduism_ataglance"
+                    android:title="At a Glance" />
+                <item
+                    android:id="@+id/hinduism_beliefs"
+                    android:title="Beliefs" />
+                <item
+                    android:id="@+id/hinduism_history"
+                    android:title="History" />
+            </menu>
+        </item>
+
+        <item
+            android:id="@+id/atheism"
+            android:title="Atheism">
+            <menu>
+                <item
+                    android:id="@+id/atheism_ataglance"
+                    android:title="At a Glance" />
+                <item
+                    android:id="@+id/atheism_beliefs"
+                    android:title="Beliefs" />
+                <item
+                    android:id="@+id/atheism_history"
+                    android:title="History" />
+            </menu>
+        </item>
+    </group>
+</menu>
